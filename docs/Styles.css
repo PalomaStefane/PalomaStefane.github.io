@@ -1,96 +1,108 @@
+
 :root {
-    --cor-primaria: #000000;
-    --cor-secundaria: rgba(255, 0, 0, 0.2);
-    --cor-clara: rgba(255, 255, 255);
-    --cor-escura: rgba(202, 93, 227);
-    --cor-destaque: rgba(0, 255, 255);
-}
-
-
-body {
-    background-color: black;
-    color: rgb(255, 255, 255);
-
-}
-
-h1,
-h2 {
-    color: rgb(202, 93, 227);
-}
-
-a {
-    color: aqua;
+    --fundo: #e676d1;
+    --gradiente: linear-gradient(135deg, #151f77, #1c2096, #151f77);
+    --cor-primaria: #d924be;
+    --cor-texto: #ecf0f1;
+    --cor-titulo: #d924be;
+    --fundo-section: rgb(6, 33, 121);
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1rem;
-    color: var();
-    padding: 1rem;
-    box-shadow: var(--cor-primaria);
-    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-escura));
- line-height: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--gradiente);
+    color: var(--cor-texto);
+    line-height: 1.6;
 }
 
 header {
     text-align: center;
     padding: 3rem 1rem;
-    /* box-shadow: 5px 5px 5px rgba(255,0,0,0.5); */
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: slideDown 1s ease-out;
 }
 
-head h1 {
-    font-size: 2rem;
+header h1 {
+    font-size: 2.8rem;
+    color: var(--cor-titulo);
 }
 
 main {
     max-width: 900px;
     margin: 2rem auto;
-    padding: 1rem;
-
+    padding: 0 1rem;
+    animation: fadeIn 1.2s ease-out;
 }
 
 section {
+    background: var(--fundo-section);
+    padding: 2rem;
+    border-radius: 12px;
     margin-bottom: 2rem;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 5px 4px 5px 3px rgba(255, 0, 0, 0.2);
-
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-section * {
-    margin: 0.3rem;
+section:hover {
+    transform: translateY(-5px);
+    background-color: rgba(163, 17, 163, 0.08);
 }
 
-section .topico {
-    margin: 3rem 0rem;
+h2 {
+    margin-bottom: 1rem;
+    color: var(--cor-primaria);
+    font-size: 1.6rem;
+    border-bottom: 1px solid var(--cor-primaria);
+    padding-bottom: 0.3rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+ul li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+    color: var(--cor-primaria);
+}
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 footer {
     text-align: center;
     padding: 2rem 1rem;
+    background-color: rgba(4, 4, 4, 0.2);
+    color: var(--cor-texto);
     font-size: 0.9rem;
+    animation: fadeIn 2s ease-out;
 }
 
-@keyframes fadeInDowm {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -102,14 +114,14 @@ footer {
     }
 }
 
-@keyframes fadeIn {
-
+@keyframes slideDown {
     from {
         opacity: 0;
+        transform: translateY(-30px);
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
     }
-
 }
